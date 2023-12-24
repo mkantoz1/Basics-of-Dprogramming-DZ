@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int M, N;
+    std::cin >> M >> N;
+
+    // Создаем матрицу размером M x N
+    std::vector<std::vector<double>> matrix(M, std::vector<double>(N));
+
+    // Вводим элементы матрицы
+    for (int i = 0; i < M; ++i) {
+        for (int j = 0; j < N; ++j) {
+            std::cin >> matrix[i][j];
+        }
+    }
+
+    // Находим индекс столбца с максимальным элементом
+    int maxColumnIndex = 0;
+    for (int j = 1; j < N; ++j) {
+        if (matrix[0][j] > matrix[0][maxColumnIndex]) {
+            maxColumnIndex = j;
+        }
+    }
+
+    // Удаляем столбец с максимальным элементом
+    for (int i = 0; i < M; ++i) {
+        for (int j = maxColumnIndex; j < N - 1; ++j) {
+            matrix[i][j] = matrix[i][j + 1];
+        }
+    }
+
+    // Выводим получившуюся матрицу
+    for (int i = 0; i < M; ++i) {
+        for (int j = 0; j < N - 1; ++j) {
+            std::cout << matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
