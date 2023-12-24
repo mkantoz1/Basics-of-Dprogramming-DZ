@@ -1,0 +1,26 @@
+#include <iostream>
+
+// Процедура для обмена значениями двух переменных
+void Swap(double& X, double& Y) {
+    double temp = X;
+    X = Y;
+    Y = temp;
+}
+
+int main() {
+    // Четыре вещественные переменные
+    double A, B, C, D;
+
+    // Ввод данных
+    std::cin >> A >> B >> C >> D;
+
+    // Применяем процедуру Swap к переменным
+    Swap(A, B);
+    Swap(C, D);
+    Swap(B, C);
+
+    // Вывод результата
+    std::cout << A << " " << B << " " << C << " " << D << std::endl;
+
+    return 0;
+}
