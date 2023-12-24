@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main() {
+    // Получаем от пользователя три числа
+    double a, b, c;
+    std::cout << "Введите три числа: ";
+    std::cin >> a >> b >> c;
+
+    // Находим два наибольших числа
+    double max1, max2;
+
+    if (a >= b && a >= c) {
+        max1 = a;
+        max2 = (b >= c) ? b : c;
+    } else if (b >= a && b >= c) {
+        max1 = b;
+        max2 = (a >= c) ? a : c;
+    } else {
+        max1 = c;
+        max2 = (a >= b) ? a : b;
+    }
+
+    // Находим и выводим сумму двух наибольших чисел
+    double сумма = max1 + max2;
+    std::cout << "Сумма двух наибольших чисел: " << сумма << std::endl;
+
+    return 0;
+}
