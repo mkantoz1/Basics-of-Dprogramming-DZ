@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    std::vector<double> array(N);
+
+    for (int i = 0; i < N; ++i) {
+        std::cin >> array[i];
+    }
+
+    int newSize = 1; // Новый размер массива после удаления соседних одинаковых элементов
+    for (int i = 1; i < N; ++i) {
+        if (array[i] != array[i - 1]) {
+            array[newSize] = array[i];
+            newSize++;
+        }
+    }
+
+    // Выводим элементы массива после удаления соседних одинаковых элементов
+    for (int i = 0; i < newSize; ++i) {
+        std::cout << array[i] << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
