@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int M, N;
+    std::cin >> M >> N;
+
+    // Создаем целочисленную матрицу размером M x N
+    std::vector<std::vector<int>> matrix(M, std::vector<int>(N));
+
+    // Вводим элементы матрицы
+    for (int i = 0; i < M; ++i) {
+        for (int j = 0; j < N; ++j) {
+            std::cin >> matrix[i][j];
+        }
+    }
+
+    int maxCount = 0;  // Максимальное количество одинаковых элементов в строке
+    int lastRow = 0;   // Номер последней строки с максимальным количеством одинаковых элементов
+
+    // Перебираем строки матрицы
+    for (int i = 0; i < M; ++i) {
+        int count = 1;  // Текущее количество одинаковых элементов в строке
+
+        // Сравниваем каждый элемент с предыдущим в строке
+        for (int j = 1; j < N; ++j) {
+            if (matrix[i][j] == matrix[i][j - 1]) {
+                count++;
+            } else {
+                count = 1;  // Начинаем подсчет заново, если элементы не совпадают
+            }
+        }
+
+        // Обновляем максимальное количество и номер последней строки
+        if (count > maxCount) {
+            maxCount = count;
+            lastRow = i;
+        }
+    }
+
+    std::cout << lastRow + 1 << std::endl;  // Выводим номер строки (начиная с 1)
+
+    return 0;
+}
