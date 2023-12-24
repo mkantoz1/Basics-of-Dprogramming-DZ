@@ -1,0 +1,44 @@
+#include <iostream>
+
+// Функция для определения, является ли число K степенью числа N
+bool IsPowerN(int K, int N) {
+    if (K < 1 || N < 2) {
+        return false; // Проверка на валидность входных данных
+    }
+
+    int power = 0;
+    int result = 1;
+
+    // Увеличиваем степень до тех пор, пока результат меньше или равен K
+    while (result <= K) {
+        if (result == K) {
+            return true;
+        }
+
+        result *= N;
+        power++;
+    }
+
+    return false;
+}
+
+int main() {
+    // Ввод числа N
+    int N;
+    std::cin >> N;
+
+    // Ввод 10 целых чисел
+    int numbers[10];
+    for (int i = 0; i < 10; ++i) {
+        std::cin >> numbers[i];
+    }
+
+    // Проверяем каждое число на степень числа N и выводим результат
+    for (int i = 0; i < 10; ++i) {
+        std::cout << IsPowerN(numbers[i], N) << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
