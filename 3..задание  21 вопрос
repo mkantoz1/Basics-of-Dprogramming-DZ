@@ -1,0 +1,25 @@
+#include <iostream>
+
+int main() {
+    // Получаем от пользователя количество месяцев (возраст в месяцах)
+    int months;
+    std::cout << "Введите количество месяцев: ";
+    std::cin >> months;
+
+    // Вычисляем количество лет и месяцев
+    int years = months / 12;
+    int remainingMonths = months % 12;
+
+    // Выводим результат
+    if (years > 0 && remainingMonths > 0) {
+        std::cout << years << " год " << remainingMonths << " месяца" << std::endl;
+    } else if (years > 0) {
+        std::cout << years << " год" << (years > 1 ? "а" : "") << std::endl;
+    } else if (remainingMonths > 0) {
+        std::cout << remainingMonths << " месяца" << std::endl;
+    } else {
+        std::cout << "Точный возраст не может быть выражен в годах и месяцах." << std::endl;
+    }
+
+    return 0;
+}
