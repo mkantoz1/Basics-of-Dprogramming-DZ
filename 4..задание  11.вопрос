@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+    // Получаем от пользователя число
+    int originalNumber;
+    std::cout << "Введите число: ";
+    std::cin >> originalNumber;
+
+    // Переменная для хранения обратного числа
+    int reversedNumber = 0;
+
+    // Обращаем число
+    while (originalNumber > 0) {
+        int lastDigit = originalNumber % 10;
+        reversedNumber = reversedNumber * 10 + lastDigit;
+        originalNumber /= 10;
+    }
+
+    // Выводим результат
+    std::cout << "Обратное число: " << reversedNumber << std::endl;
+
+    return 0;
+}
