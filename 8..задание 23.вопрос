@@ -1,0 +1,37 @@
+#include <iostream>
+#include <sstream>
+#include <cctype>  // Добавлен заголовочный файл для использования isdigit()
+
+int evaluateExpression(const std::string &expression) {
+    std::istringstream iss(expression);
+    char op;
+    int number, result;
+
+    // Инициализируем результат первым числом в выражении
+    iss >> result;
+
+    while (iss >> op >> number) {
+        if (op == '+') {
+            result += number;
+        } else if (op == '-') {
+            result -= number;
+        }
+        // Дополнительные операции могут быть добавлены здесь
+    }
+
+    return result;
+}
+
+int main() {
+    // Чтение входной строки
+    std::string inputString;
+    std::getline(std::cin, inputString);
+
+    // Вычисление значения арифметического выражения
+    int result = evaluateExpression(inputString);
+
+    // Вывод результата
+    std::cout << result << std::endl;
+
+    return 0;
+}
