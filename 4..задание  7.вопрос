@@ -1,0 +1,26 @@
+#include <iostream>
+
+int main() {
+    // Получаем от пользователя число
+    int number;
+    std::cout << "Введите число: ";
+    std::cin >> number;
+
+    // Проверяем, что введенное число положительное
+    if (number <= 0) {
+        std::cout << "Пожалуйста, введите положительное число." << std::endl;
+        return 1;
+    }
+
+    // Выводим все делители числа
+    std::cout << "Делители числа " << number << ": ";
+    for (int i = 1; i <= number; ++i) {
+        if (number % i == 0) {
+            std::cout << i << " ";
+        }
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
