@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    // Ввод числа
+    int N;
+    std::cin >> N;
+
+    // Ограничиваем значением 26, если больше
+    N = std::min(N, 26);
+
+    // Получаем N последних строчных букв латинского алфавита в обратном порядке
+    std::vector<char> letters;
+    for (int i = N; i >= 1; --i) {
+        letters.push_back('z' - (N - i));
+    }
+
+    // Выводим результат
+    for (char letter : letters) {
+        std::cout << letter << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
